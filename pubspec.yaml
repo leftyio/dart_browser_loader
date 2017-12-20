@@ -2,7 +2,7 @@ name: dart_browser_loader
 description: A starting point for Dart libraries or applications.
 version: 0.0.1
 homepage: https://github.com/lejard-h/dart_browser_loader
-author: lejard_h <email@example.com>
+author: Hadrien Lejard <hadrien.lejard@gmail.com>
 
 environment:
   sdk: '>=1.20.1 <2.0.0'
