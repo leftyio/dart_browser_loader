@@ -4,6 +4,7 @@ import 'dart:html';
 Future<ScriptElement> loadScript(String src,
     {String id,
     bool isAsync: true,
+    bool isDefer: false,
     String type: 'text/javascript',
     String integrity,
     String crossOrigin}) {
@@ -17,6 +18,7 @@ Future<ScriptElement> loadScript(String src,
     element = new ScriptElement()
       ..type = type
       ..async = isAsync
+      ..defer = isDefer
       ..src = src;
     if (id != null) {
       element.id = id;
