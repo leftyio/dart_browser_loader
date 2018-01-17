@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:html';
 
+Map<Element, Future> _mapper = {};
+
 Future<ScriptElement> loadScript(String src,
     {String id,
     bool isAsync: true,
@@ -8,10 +10,10 @@ Future<ScriptElement> loadScript(String src,
     String type: 'text/javascript',
     String integrity,
     String crossOrigin}) {
-  ScriptElement element = document.querySelector("script[src='$src']");
+  ScriptElement element = id != null ? document.getElementById(id) : null;
 
-  if (id != null && element == null) {
-    element = document.getElementById(id);
+  if (element == null) {
+    element = document.querySelector("script[src='$src']");
   }
 
   if (element == null) {
@@ -49,10 +51,10 @@ Future<StyleElement> loadInlineStyle(String style, {String id}) {
 
 Future<LinkElement> loadLink(String href,
     {String id, String rel: "stylesheet", String type: "text/css"}) {
-  LinkElement element = document.querySelector("link[href='$href']");
+  LinkElement element = id != null ? document.getElementById(id) : null;
 
-  if (id != null && element == null) {
-    element = document.getElementById(id);
+  if (element == null) {
+    element = document.querySelector("link[href='$href']");
   }
 
   if (element == null) {
@@ -70,8 +72,11 @@ Future<LinkElement> loadLink(String href,
 }
 
 Future<T> waitLoad<T extends Element>(T element) {
-  final completer = new Completer<T>();
+  if (_mapper.containsKey(element)) {
+    return _mapper[element];
+  }
 
+  final completer = new Completer<T>();
   element.onLoad.first.then((_) {
     completer.complete(element);
   });
@@ -80,5 +85,5 @@ Future<T> waitLoad<T extends Element>(T element) {
     completer.completeError(e);
   });
 
-  return completer.future;
+  return _mapper[element] = completer.future;
 }
