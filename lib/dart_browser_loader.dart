@@ -1,3 +1,4 @@
 library dart_browser_loader;
 
-export 'src/dart_browser_loader_base.dart';
+export 'src/script.dart';
+export 'src/style.dart';

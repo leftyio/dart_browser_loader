@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.4
+- support inline script
+
 ## 0.0.3
 - better performance
 - fix blocking load when call multiple time
