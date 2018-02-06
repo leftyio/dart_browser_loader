@@ -5,7 +5,6 @@ import 'dart:html';
 
 Map<Element, Future> _mapper = {};
 
-
 Future<T> waitLoad<T extends Element>(T element) {
   if (_mapper.containsKey(element)) {
     return _mapper[element];
