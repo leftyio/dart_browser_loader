@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5
+
+- dart 2 stable
+
 ## 0.0.4
 - support inline script
 
