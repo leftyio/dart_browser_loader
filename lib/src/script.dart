@@ -1,23 +1,26 @@
-library dart_browser_loader.script;
-
 import 'dart:async';
 import 'dart:html';
 
 import "utils.dart";
 
-Future<ScriptElement> loadScript(String src,
-    {String id,
-    bool isAsync: true,
-    bool isDefer: false,
-    String type: 'text/javascript',
-    String integrity,
-    String crossOrigin}) {
+/// Include a [ScriptElement] inside the <head>
+///
+/// Future<ScriptElement> is completed when the script is loaded
+Future<ScriptElement> loadScript(
+  String src, {
+  String id,
+  bool isAsync = true,
+  bool isDefer = false,
+  String type = 'text/javascript',
+  String integrity,
+  String crossOrigin,
+}) {
   ScriptElement element = id != null
       ? document.getElementById(id)
       : document.querySelector("script[src='$src']");
 
   if (element == null) {
-    element = new ScriptElement()
+    element = ScriptElement()
       ..type = type
       ..async = isAsync
       ..defer = isDefer
@@ -36,12 +39,20 @@ Future<ScriptElement> loadScript(String src,
   return waitLoad(element);
 }
 
-Future<ScriptElement> loadInlineScript(String src, String id,
-    {String type: 'text/javascript'}) {
+/// Include inline [ScriptElement] inside the <head>
+///
+/// Future<ScriptElement> is completed when the script is loaded
+///
+/// ex: loadInlineScript('console.log("Hello")');
+Future<ScriptElement> loadInlineScript(
+  String src,
+  String id, {
+  String type = 'text/javascript',
+}) {
   ScriptElement element = document.getElementById(id);
 
   if (element == null) {
-    element = new ScriptElement()
+    element = ScriptElement()
       ..type = type
       ..id = id
       ..innerHtml = src;

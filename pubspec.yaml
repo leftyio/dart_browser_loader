@@ -1,6 +1,6 @@
 name: dart_browser_loader
 description: A starting point for Dart libraries or applications.
-version: 0.0.5
+version: 0.0.5+1
 homepage: https://github.com/leftyio/dart_browser_loader
 author: Hadrien Lejard <hadrien.lejard@gmail.com>
 
@@ -9,3 +9,4 @@ environment:
 
 dev_dependencies:
   test: ^1.3.0
+  pedantic: ^1.8.0

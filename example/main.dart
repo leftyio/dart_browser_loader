@@ -1,4 +1,4 @@
-import '../lib/dart_browser_loader.dart';
+import 'package:dart_browser_loader/dart_browser_loader.dart';
 
 main() async {
   await loadScript("https://code.jquery.com/jquery-3.2.1.min.js");

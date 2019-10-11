@@ -1,5 +1,3 @@
-library dart_browser_loader.utils;
-
 import 'dart:async';
 import 'dart:html';
 
@@ -10,7 +8,7 @@ Future<T> waitLoad<T extends Element>(T element) {
     return _mapper[element];
   }
 
-  final completer = new Completer<T>();
+  final completer = Completer<T>();
   element.onLoad.first.then((_) {
     completer.complete(element);
   });

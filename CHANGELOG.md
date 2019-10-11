@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5+1
+
+- Maintenance release
+
 ## 0.0.5
 
 - dart 2 stable
