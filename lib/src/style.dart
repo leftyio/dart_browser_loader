@@ -1,21 +1,22 @@
 import 'dart:async';
 import 'dart:html';
-import "utils.dart";
+import 'utils.dart';
 
 /// Include a inline [StyleElement] inside the <head>
 ///
 /// Future<StyleElement> is completed when the style is loaded
 ///
 /// ex: loadInlineStyle('body { margin: 0; }');
-Future<StyleElement> loadInlineStyle(String style, {String id}) {
-  StyleElement element = id != null ? document.getElementById(id) : null;
+Future<StyleElement> loadInlineStyle(String style, {String? id}) {
+  var element =
+      id != null ? document.getElementById(id) as StyleElement? : null;
 
   if (element == null) {
     element = StyleElement()..innerHtml = style;
     if (id != null) {
       element.id = id;
     }
-    document.head.append(element);
+    document.head!.append(element);
   }
   return waitLoad(element);
 }
@@ -27,13 +28,13 @@ Future<StyleElement> loadInlineStyle(String style, {String id}) {
 /// ex: loadLink('./style.css');
 Future<LinkElement> loadLink(
   String href, {
-  String id,
-  String rel = "stylesheet",
-  String type = "text/css",
+  String? id,
+  String rel = 'stylesheet',
+  String type = 'text/css',
 }) {
-  LinkElement element = id != null
-      ? document.getElementById(id)
-      : document.querySelector("link[href='$href']");
+  var element = id != null
+      ? document.getElementById(id) as LinkElement?
+      : document.querySelector("link[href='$href']") as LinkElement?;
 
   if (element == null) {
     element = LinkElement()
@@ -43,7 +44,7 @@ Future<LinkElement> loadLink(
     if (id != null) {
       element.id = id;
     }
-    document.head.append(element);
+    document.head!.append(element);
   }
 
   return waitLoad(element);
