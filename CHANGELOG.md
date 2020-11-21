@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6-nullsafety.0
+
+- Null safety
+
 ## 0.0.5+1
 
 - Maintenance release
@@ -9,13 +13,16 @@
 - dart 2 stable
 
 ## 0.0.4
+
 - support inline script
 
 ## 0.0.3
+
 - better performance
 - fix blocking load when call multiple time
 
 ## 0.0.2
+
 - add `defer` to loadScript
 
 ## 0.0.1
