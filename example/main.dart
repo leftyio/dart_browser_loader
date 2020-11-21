@@ -1,11 +1,9 @@
 import 'package:dart_browser_loader/dart_browser_loader.dart';
 
-Future<void> main() async {
-  print('load');
-  await loadScript('https://code.jquery.com/jquery-3.2.1.min.js');
+main() async {
+  await loadScript("https://code.jquery.com/jquery-3.2.1.min.js");
   await loadLink(
-    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css',
-  );
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css");
   await loadInlineStyle('''
   body {
     color: red;
