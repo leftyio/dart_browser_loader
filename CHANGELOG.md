@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.7-nullsafety.0
+## 0.1.0
 
 - null safety
 
