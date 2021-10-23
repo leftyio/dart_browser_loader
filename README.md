@@ -1,3 +1,5 @@
+[![Dart](https://github.com/leftyio/dart_browser_loader/actions/workflows/dart.yml/badge.svg)](https://github.com/leftyio/dart_browser_loader/actions/workflows/dart.yml)
+
 # dart_browser_loader
 
 Import Javascript/Css... using Dart
