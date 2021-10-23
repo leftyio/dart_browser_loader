@@ -25,6 +25,7 @@ Future<ScriptElement> loadScript(
       ..type = type
       ..async = isAsync
       ..defer = isDefer
+      // ignore: unsafe_html
       ..src = src;
     if (id != null) {
       element.id = id;
@@ -38,7 +39,7 @@ Future<ScriptElement> loadScript(
     document.head!.append(element);
   }
 
-  return waitLoad(element);
+  return waitLoad<ScriptElement>(element);
 }
 
 /// Include inline [ScriptElement] inside the <head>
@@ -60,12 +61,12 @@ Future<ScriptElement> loadInlineScript(
       ..innerHtml = src;
     document.head!.append(element);
   }
-  return waitLoad(element);
+  return waitLoad<ScriptElement>(element);
 }
 
 /// Eval javascript string
 ///
 /// ex: eval('console.log("Hello")');
-void eval(String script) async {
+void eval(String script) {
   js.context.callMethod('eval', [script]);
 }

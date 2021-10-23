@@ -18,7 +18,7 @@ Future<StyleElement> loadInlineStyle(String style, {String? id}) {
     }
     document.head!.append(element);
   }
-  return waitLoad(element);
+  return waitLoad<StyleElement>(element);
 }
 
 /// Include a [LinkElement] inside the <head>
@@ -47,5 +47,5 @@ Future<LinkElement> loadLink(
     document.head!.append(element);
   }
 
-  return waitLoad(element);
+  return waitLoad<LinkElement>(element);
 }
